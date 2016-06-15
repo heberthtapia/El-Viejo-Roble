@@ -141,7 +141,7 @@
       </div><!--End title-->
       <div id="usuario">
         <p><?=$cargo;?></p>
-        <p id="user">Bienvenido...........: <?=$inc[0];?>.&nbsp;&nbsp; <?=$row['apP'];?></p>
+        <p id="user">Bienvenido.......!!!!: <?=$inc[0];?>.&nbsp;&nbsp; <?=$row['apP'];?></p>
         <p id="session"><a href="Javascript:void(0);" onclick="outSession('<?=$_SESSION['idUser'];?>');">Cerrar Sesi&oacute;n</a></p>
       </div><!--End usuario-->
       <div class="clearfix"></div>
