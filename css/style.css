@@ -1,0 +1,469 @@
+/* CSS Document */
+@charset "utf-8";
+/*   RESET    */
+
+* { margin: 0; padding: 0; border: 0;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, striker, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;	
+}
+body {
+	line-height: 1;
+
+	font-size: 70%;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus atyles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables atill need 'cellspacing='0'' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* MI RESET */
+
+h1 { font-size: 26px;}
+h2 { font-size: 20px;}
+h3 { font-size: 16px;}
+h4 { font-size: 14px;}
+h5 { font-size: 12px;}
+h6 { font-size: 10px;}
+
+li { list-style: none;}
+a { text-decoration: none; cursor:pointer;}
+a:hover { text-decoration: underline;}
+
+/* ESTILOS GENERALES */
+
+body{
+	background-color:#FFFFFF;
+	}
+div#container{
+	width:1200px;
+	margin:auto;
+	}
+div#head{
+	height:120px;
+	background-image:url(../images/back-head.jpg);
+	}
+div#menu{
+	height:30px;
+	padding:19px 0 0 60px;
+	}
+div#menu ul li{
+	float:left;
+	background: rgba(196, 57, 33, 0.9); /*#2F7EB4;#3C5668;*/
+	margin-left:5px;
+	border-top:1px #f7f7f7 solid;
+	border-left:1px #f7f7f7 solid;
+	border-right:1px #f7f7f7 solid;;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	}
+div#menu ul li a{
+	display:block;
+	padding:8px 12px;
+	text-decoration:none;
+	color:#FFFFFF;
+	font-weight:bold;
+	font-size:12px;
+	font-family:"Century Gothic";
+	text-shadow:1px 1px #000000;
+	}
+div#menu ul li a:hover{
+	color:#000000;
+	font-weight:bold;
+	background-color:#cdc2a5;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	text-shadow:1px 1px #FFFFFF;
+	}
+	
+div#contenido{
+	min-height:300px;
+	background-color:#f7f7f7;
+	padding: 30px 0;
+	}
+
+div#footer{
+	height:35px;
+	margin-bottom:15px;
+	}
+/* MODULO INICIO */
+
+div#inicio{
+	padding:50px 100px;
+	}
+
+div.subMenu{
+	float:left;
+	margin-bottom:30px;
+	}
+div.der{
+	margin-left:30px;
+	}
+div.subMenu a{
+	display:block;
+	width:463px;
+	height:55px;
+	border:#CCCCCC 1px solid;
+	padding:5px 10px;
+	background-color:#FFFFFF;
+	text-decoration:none;
+	}
+div.subMenu a:hover p.tMenu{
+	color:#01406B;
+	}
+div.subMenu a img{
+	float:left;
+	border: 1px #D6D6D6 solid;
+	padding:1px;
+	}
+div.subMenu a p{
+	font-size:12px;
+	font-family:"Century Gothic";
+	color:#000000;
+	margin:5px 0 10px 75px;
+	}
+div.subMenu a p.tMenu{
+	font-size:16px;
+	color:#A3321D;
+	font-weight:bold;
+	}
+
+/* DataTable */
+div.subTit {
+	text-align:center;
+	padding: 35px 0 10px 0;
+}
+p.text_titulo {
+    color: #A3321D;
+    font-family: "Century Gothic";
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #999999;
+    text-transform: uppercase;
+}
+div.new {
+    float: right;
+    height: 23px;
+    margin: 0 160px 25px 0;
+}
+div.new a img {
+    float: left;
+}
+div.new a {
+    color: #8ad120;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 3px #8ad120;
+}
+div.new span {
+    float: left;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    padding: 4px 10px;
+	text-shadow: 1px 1px #0f0f0f;
+}
+div#lista{
+	width:1000px;
+	margin:auto;
+	}
+/*----------------------
+	Camera slide up
+-----------------------*/
+
+
+#camera{
+	background:url('../images/cam_bg.jpg') repeat-y;
+	border:1px solid #f0f0f0;
+	height:330px;
+	width:465px;
+	position:absolute;
+	margin: -370px 0 0 100px;
+	display:none;
+
+	-moz-border-radius:4px 4px 0 0;
+	-webkit-border-radius:4px 4px 0 0;
+	border-radius:4px 4px 0 0;
+	
+	-moz-box-shadow:0 0 4px rgba(0,0,0,0.6);
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.6);
+	box-shadow:0 0 4px rgba(0,0,0,0.6);
+}
+
+.camTop{
+	background:url('../img/cam.png') no-repeat center center;
+	width:100%;
+	height:66px;
+	position:absolute;
+	top:0;
+	left:0;
+	cursor:pointer;
+}
+
+.settings{
+	background:url('../img/settings.png') no-repeat;
+	cursor: pointer;
+	height: 28px;
+	position: absolute;
+	right: 37px;
+	top: 448px;
+	width: 30px;
+}
+
+.settings:hover{
+	background-position:left bottom;
+}
+
+#screen{
+	width:450px;
+	height:320px;
+	margin: 5px auto 5px;
+	background:#ccc;
+    text-align: center;
+	color:#666;
+}
+
+.buttonPane{
+	text-align: center;
+	margin-top:10px;
+}
+
+/*.tooltip{
+	background:url('../img/tooltip.png') no-repeat;
+	position:absolute;
+	width:177px;
+	height:146px;
+	right: 38px;
+	top: -140px;
+}*/
+
+.blueButton,
+.greenButton{
+	background:url('../images/buttons.png') no-repeat;
+	text-shadow:1px 1px 1px #277c9b;
+	color:#fff !important;
+	width:99px;
+	height:38px;
+	border:none;
+	text-decoration:none;
+	display:inline-block;
+	font-size: 16px;
+	line-height: 32px;
+	text-align: center;
+	margin: 0 4px;
+	font-family:"Century Gothic";
+}
+
+.greenButton{
+	background:url('../images/buttons.png') no-repeat right top;
+	text-shadow:1px 1px 1px #498917;
+}
+
+.blueButton:hover,
+.greenButton:hover{
+	background-position:left bottom;
+	text-decoration:none !important;
+}
+
+.greenButton:hover{
+	background-position:right bottom;
+}
+
+.blueButton:active,
+.greenButton:active{
+	position:relative;
+	bottom:-1px;
+}
+
+.hidden{
+	display:none;
+}
+
+h3{
+	font-family:"Century Gothic";
+	}
+div#load{
+	width:300px;
+	margin:-30px auto 0 auto;
+	background-color:#f9edbe;
+	padding:10px 0px;
+	border:2px solid #f0c36d;
+	
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	
+	}
+div#load p{
+	font-family:"Century Gothic";
+	font-size:14px;
+	color:#000;
+	text-align:center;
+	}
+p.rojo{
+	color:#FC070B;
+	font-size:9px;
+	}
+	
+/* MODULO DE PEDIDO */
+
+div#preventa{
+	width:1100px;
+	margin:auto;
+	}
+div#preventa p{
+	color: #a3321d;
+    font-family: "Century Gothic";
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #999999;
+    text-transform: uppercase;
+	text-align:center;
+	margin:10px 0 10px 0;
+	}
+div#preizq{
+	float:left;
+	}
+div#preder{
+	float:right;
+	}
+div#ventIzq{
+	float:left;
+	}
+div#ventIq{
+	width:120px;
+	border-top:2px #01406B groove;
+	border-bottom:2px #01406B groove;
+	padding:0 10px 12px;
+	margin:12px 0 20px 0;	
+	}	
+
+div#ventCent{
+	float:left;
+	width:550px;
+	border-top:2px #01406B groove;
+	border-left:2px #01406B groove;
+	border-right:2px #01406B groove;
+	margin-top:12px;
+	padding:10px 10px;
+	min-height:350px;
+	}
+div#ventDer{
+	float:left;
+	}
+div#ventDe{
+	width:120px;
+	border-top:2px #01406B groove;
+	border-bottom:2px #01406B groove;
+	padding:0 20px 12px;
+	margin:12px 0 20px 0;
+	}
+div#listaProd{
+	width:200px;
+	border-left:2px #01406B groove;
+	border-top:2px #01406B groove;
+	padding:0 10px 12px;
+	margin:12px 0 20px 0;
+	min-height:360px;
+	}
+ul#listaP li.idProd{
+	float:left;
+	width:60px;
+	border-right:1px solid #000000;
+	border-bottom:1px solid #000000;
+	padding:3px;
+	text-align:center;
+	}
+ul#listaP li.conProd{
+	float:left;
+	width:125px;
+	border-bottom:1px solid #000000;
+	padding:3px;
+	text-align:center;
+	}
+div#title{
+	width: 400px;
+    text-align: right;
+    padding: 10px;
+    letter-spacing: 5px;
+	float:left;
+	}
+div#title p{
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size:36px;
+	text-shadow: 1px 1px 1px #000000;
+    text-transform:capitalize;
+	font-weight:bold;
+	color:rgba(196, 57, 33, 0.9);
+	}
+div#usuario{
+	float:right;
+	padding:0px 20px 0 0;
+	text-align:right;
+	}
+div#usuario p{
+	color: #fff;
+    font-family: "Myriad Pro";
+    font-size: 14px;
+    margin: 10px 30px 0 0;
+	text-shadow: 1px 1px 1px #000000;
+	text-transform:capitalize;
+	}
+div#usuario p#session a{
+	text-decoration:none;
+	color:rgba(249,2,6,1.00);
+	}
+div#usuario p#session a:hover{
+	color:rgba(249,77,0,0.93);
+	}
+
+/* CLASES */
+
+.clearfix {
+width:0px;
+height:0px;
+display:block;
+clear:both;
+content:'.';
+}

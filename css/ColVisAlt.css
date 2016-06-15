@@ -1,0 +1,114 @@
+/*
+ * An alternative styling for ColVis
+ * Note you will likely have to change the path for the background image used by jQuery UI theming:
+ *   ../../../../examples/examples_support/themes/smoothness
+ */
+
+.ColVis {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 15px;
+	height: 30px;
+	
+	background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
+.ColVis_MasterButton {
+	height: 100%;
+	width: 100%;
+	border-left-width: 0;
+	cursor: pointer;
+	*cursor: hand;
+	background: url('../images/button.png') no-repeat top left;
+}
+
+button.ColVis_Button::-moz-focus-inner { 
+	border: none !important;
+	padding: 0;
+}
+
+.ColVis_text_hover {
+	border: 1px solid #999;
+	background-color: #f0f0f0;
+}
+
+div.ColVis_collectionBackground {
+	background-color: black;
+	z-index: 1100;
+}
+
+div.ColVis_collection {
+	position: relative;
+	width: 150px;
+	background-color: #f9f9f9;
+	padding: 3px;
+	border: 1px solid #ccc;
+	z-index: 1102;
+}
+
+div.ColVis_collection button.ColVis_Button {
+	height: 25px;
+	width: 100%;
+	margin-right: 3px;
+	margin-bottom: 2px;
+	padding: 3px 5px;
+	cursor: pointer;
+	*cursor: hand;
+	text-align: left;
+	font-size:10px;
+}
+
+div.ColVis_collection button.ColVis_Button:hover {
+	border: 1px solid #999;
+	background-color: #cdc2a5;
+}
+
+div.ColVis_catcher {
+	position: absolute;
+	z-index: 1101;
+}
+
+span.ColVis_radio {
+	display: inline-block;
+	width: 20px;
+}
+
+button.ColVis_Restore {
+	margin-top: 15px;
+}
+
+button.ColVis_Restore span {
+	display: inline-block;
+	padding-left: 10px;
+	text-align: left;
+}
+
+.disabled {
+	color: #999;
+}
+
+
+
+/*
+ * Styles needed for DataTables scrolling
+ */
+div.dataTables_scrollHead {
+	position: relative;
+	overflow: hidden;
+}
+
+div.dataTables_scrollBody {
+	overflow-y: scroll;
+}
+
+div.dataTables_scrollFoot {
+	overflow: hidden;
+}

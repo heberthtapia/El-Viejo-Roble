@@ -1,0 +1,765 @@
+/*
+ * Ideal Forms
+ * by Cedric Ruiz 
+ * elclanrs@gmail.com
+ * www.jqidealforms.com
+ *
+ * Version 0.69
+*/
+
+
+/* CAUTION
+
+***************************************************/
+
+@font-face { /* Load dingbat font for checkmark */
+    font-family: 'DistroIIBats';
+    src: url('distro2_bats-webfont.eot');
+    src: url('distro2_bats-webfont.eot?#iefix') format('embedded-opentype'),
+         url('distro2_bats-webfont.woff') format('woff'),
+         url('distro2_bats-webfont.ttf') format('truetype'),
+         url('distro2_bats-webfont.svg#DistroIIBats') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:focus { outline:none; outline-style: none;}
+::-moz-focus-inner { border:0; }
+
+/*form { margin: 2em 0; } */
+
+form#form, form#formPreVenta { 
+	font: normal 11px "Century Gothic"; 
+	text-transform:uppercase;
+	letter-spacing:0.5px;
+} /* Global font */
+
+/* Mi Estilo */
+
+div#idealWrap{
+	padding:0 15px;
+	}
+
+fieldset {
+	margin-top: 0px;
+	padding: 0 15px 15px 5px;
+	border: 1px solid #B5B8C8;
+	}
+
+legend {
+	font-size: 22px;
+	color: #a3321d;
+	font-weight: 900;
+	text-shadow: 2px 2px 2px #999999;
+	}
+
+div#foto{
+	/*float:right;*/
+	position:absolute;
+	margin-left:554px;
+	}
+div#foto img{
+	padding:3px;
+	border:1px #cccccc solid;
+	}
+/*************/
+
+div#fotoC{
+	/*float:right;*/
+	position:absolute;
+	margin-left:813px;
+	}
+div#fotoC img{
+	padding:3px;
+	border:1px #cccccc solid;
+	}
+
+textarea,
+input[type="text"], /* Global width */
+input[type="password"] {	
+	width: 11em;
+}
+
+input[type="text"]#cliente{
+	width:22em;
+}
+
+input[type="text"]#cant,
+input[type="text"]#vol,
+input[type="text"]#precio,
+input[type="text"]#idInv{
+	width:6em;
+}
+input[type="text"]#producto,
+input[type="text"]#cant{
+	width:6em;
+	margin: 8px 0 0 20px;
+}
+
+input[type="text"]#fecha,
+input[type="text"]#from,
+input[type="text"]#to{ /* Para la fecha */
+	width:5.4em;
+}
+
+input[type="text"]#fecha{
+	cursor: not-allowed;
+	}
+
+input[type="text"]#dateNac{ /* Para la fecha */
+	width:6.2em;
+}
+
+input[type="text"]#password{ /* Para el titulo */
+	width:10em;
+}
+
+input[type="text"]#ci{ /* Para el titulo */
+	width:7em;
+}
+
+input[type="text"]#fono,
+input[type="text"]#celular{ /* Para el titulo */
+	width:7em;
+}
+
+input[type="text"]#name,
+input[type="text"]#paterno,
+input[type="text"]#materno{ /* Para el datos usuario */
+	width:17.5em;
+}
+
+input[type="text"]#addres, 
+input[type="text"]#email{ /* Para la direccion y email */
+	width:24em;
+}
+input[type="text"]#detalle{ /* Detalle producto */
+	width:40.5em;
+}
+
+input[type="text"]#nameEmp{ 
+	width:33.5em;
+}
+
+input[type="text"]#zona{ /* Para la zona */
+	width:22.5em;
+}
+
+input[type="text"]#nameSuc{ /* Para la zona */
+	width:34.5em;
+}
+input[type="text"]#pedido{
+	width:7em;
+	text-align:center;
+	}
+
+textarea, 
+input[type="text"], /* Global padding */
+input[type="password"], 
+ul.idealSelect li,
+a.button  { 
+	padding: .5em;
+}
+/*********/
+a.button#reset, a.button#save { /* Para los botones padding */
+	padding: .4em .8em;	
+}
+a.button#reset{
+	margin-right:20px;
+	}
+/*********/
+textarea {     	/* Para el resumen */
+	width: 625px;
+	height: 5em;
+	overflow: auto;
+}
+
+textarea#det {     	/* Para el resumen */
+	width: 380px;
+	height: 5em;
+	overflow: auto;
+}
+
+form div.idealWrap,
+form div.idealWrap p {
+	margin: .5em 0;
+}
+
+form div.idealWrap > label {
+	width: 14em;  /* Label width */
+	float: left;
+	font-weight:bold;
+}
+
+form div.idealWrap > label.ped {
+	width: 9em;  /* Label width */
+	font-weight:bold;
+}
+
+form div.idealWrap > label.ci {
+	width: 21em;  /* Label width */
+	float: left;
+	font-weight:bold;
+}
+
+form div.idealWrap > label.login {
+	width: 9em;  /* Label width */
+	float: left;
+}
+
+form div.idealWrapFrom > label {
+	width: 8em;  /* Label width */
+}
+
+form div.idealWrap > label.date {
+	width: 5em;  /* Label width */
+	float: left;
+}
+
+form div.idealWrap > label.dateNac {
+	width: 11em;  /* Label width */
+	float: left;
+}
+
+form div.idealWrap > label.fono {
+	width: 6.5em;  /* Label width */
+	float: left;
+}
+
+form div.idealWrap > label.zona {
+	width: 4.5em;  /* Label width */
+	float: left;
+}
+
+form div.idealWrap > label.radio {
+	width: 10em;  /* Label width */
+	/*float: left;*/
+	margin:3px 60px;
+	display:block;
+}
+
+form div.idealWrap > label.rp {
+	width: 10em;  /* Label width */
+	/*float: left;*/
+	margin:5px 10px;
+	display:block;
+}
+
+form div.idealWrap > label.codb {
+	width: 13em;  /* Label width */
+	float: left;
+}
+
+form div.idealWrap > label.codba {
+	width: 6em;  /* Label width */
+	float: left;
+}
+
+form div.WrapLabel > label {
+	width:200px;
+	margin-top:5px;
+	color: #a3321d;
+	font-weight:bold;
+	}
+
+/* para upload file */
+
+form div.idealWrap > label.labelUpload,
+form div.idealWrap > label.labelWebcam {
+	width: 21em;  /* Label width */
+	float: left;
+}
+form div.idealWrap > label.labelUpload a,
+form div.idealWrap > label.labelWebcam a{
+	color:#15428B;
+	padding:0 0 0 5px;
+	float:left;
+}
+
+/* Para los usuarios */
+
+form div.Wrap{
+	margin: .5em 0;
+	width:215px;
+	float:left;
+}
+
+form div.WrapL{
+	margin: .5em 0;
+	width:250px;
+	float:left;
+}
+
+form div.WrapFrom{
+	margin: .5em 0;
+	width:230px;
+	float:left;
+}
+
+form div.WrapU{
+	margin: .5em 0;
+	width:330px;
+	float:left;
+}
+
+form div.WrapF{
+	margin: .5em 0;
+	width:98px;
+	float:left;
+}
+
+form div.WrapFo{
+	margin: .5em 0;
+	width:100px;
+	float:left;
+}
+
+form div.WrapN{
+	margin: .5em 0;
+	width:90px;
+	float:left;
+}
+
+form div.WrapD{
+	margin: .5em 0;
+	width:290px;
+	float:left;
+}
+
+form div.WrapZ{
+	margin: .5em 0;
+	width:261px;
+	float:left;
+}
+
+form div.WrapS{
+	margin: .5em 0;
+	width:215px;
+	float:left;
+}
+
+form div.WrapDS{
+	margin: 1.5em 0 0 0;
+	width:144px;
+	float:left;
+}
+
+form div.WrapC{
+	margin: 1.5em 0 0 0;
+	width:215px;
+	float:left;
+}
+
+form div.WrapCD{
+	margin: .5em 0 0 0;
+	width:235px;
+	float:left;
+}
+
+
+form div.WrapI{
+	margin: .5em 0;
+	width:255px;
+	float:left;
+}
+
+form div.WrapCB{
+	margin: .5em 0;
+	width:230px;
+	float:left;
+}
+
+form div.WrapCOB{
+	margin: .5em 0;
+	width:255px;
+	float:left;
+}
+/* PARA CLIENTE */
+
+form div.WrapCR{
+	margin: .5em 0;
+	width:155px;
+	float:left;
+}
+form div.WrapBS{
+	margin: .5em 0;
+	width:230px;
+	float:left;
+}
+form div.WrapB{
+	margin: .5em 0;
+	width:65px;
+	float:left;
+}
+input[type="text"]#buscar{ 
+	width:19.5em;
+}
+input[type="text"]#cx,
+input[type="text"]#cy{
+	cursor: not-allowed;
+}
+
+/* PARA PREVENTAS */
+
+form div.WrapPre{
+	margin: .5em 0;
+	float:left;
+	}
+input[type="text"]#addresC, 
+input[type="text"]#emailC{ /* Para la direccion y email */
+	width:25em;
+}
+
+form div.idealWrap p {
+	/*margin-left: 8em; /* Same as label width */
+	/*line-height: 1.5em;*/
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+/* PARA INVENTARIO */
+
+form div.WrapDET{
+	margin: .5em 0;
+	width:490px;
+	float:left;
+}
+
+form div.WrapCOD{
+	margin: .5em 0;
+	width:144px;
+	float:left;
+}
+ 
+/* Round Corners 
+
+***************************************************/
+
+.button,
+ul.idealSelect div li,
+ul.idealSelect ul,
+input[type="text"],
+input[type="password"],
+textarea { 
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+ul.idealSelect.menuOpen div li { 
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+}
+
+ul.idealSelect.menuOpen ul ,
+ul.idealSelect ul li:last-child { 
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+}
+
+label input[type="checkbox"] + span {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+} 
+label input[type="radio"] + span {
+	border-radius: 16px;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+}
+
+/* IE9 Disable border-radius */
+.button,
+textarea,
+ul.idealSelect div li,
+ul.idealSelect ul,
+input[type="text"],
+input[type="password"],
+label input[type="radio"] + span,
+label input[type="checkbox"] + span,
+ul.idealSelect:hover ul,
+ul.idealSelect ul li:last-child,
+ul.idealSelect div.menuOpen li,
+ul.idealSelect.menuOpen div li {  
+	border-radius: 0\9;
+}
+
+
+/* Button
+
+***************************************************/
+
+a.button {
+	display: inline-block;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+/* Radio & Checkbox 
+
+***************************************************/
+
+label span {
+	position: relative;
+	display: inline-block;
+	width: 1.3em;
+	height: 1.3em;
+	/*margin: .2em .8em;*/
+	margin-left: 0;
+	margin-right:5px;
+	*line-height: 1.8em; /* IE align text */
+}
+
+label:hover {
+	cursor: pointer;
+}
+
+label span em,
+label input[type="checkbox"] + span.selected:before { /* Checkmark */
+	content: "|"; 
+	position: absolute;
+	bottom: -.3em;
+	right: -.2em;
+	font-size: 1.7em;
+	font-family: DistroIIBats;
+}
+
+
+/* Select 
+
+***************************************************/
+
+ul.idealSelect {
+	display: inline-block;
+	cursor: pointer;
+}
+
+ul.idealSelect li {
+	margin: 0 !important;
+}
+
+ul.idealSelect ul li { /* fix IE black bg when using gradients for selected highlight */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000,endColorstr=#00000000);   
+}
+
+ul.idealSelect,
+ul.idealSelect ul {
+	list-style: none !important;
+	list-style-position: outside !important;
+}
+ul.idealSelect div {
+	position: relative;
+}
+
+ul.idealSelect div li {  /* Header */
+	font-weight: bold;
+}
+
+ul.idealSelect div span { /* Arrow */
+	display: inline-block;
+	position: absolute;
+	border: .45em solid transparent;
+}
+
+ul.idealSelect ul { /* Dropdown */
+	visibility: hidden;
+	position: absolute;
+	z-index: 999;
+	/***************** Scrollbar
+	height: 12em;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	 */
+}
+
+form#codBarras, form#venta, form#caja { font: normal 12px "Century Gothic" } /* Global font */
+
+form#codBarras{
+	width:175px;
+	margin:10px auto 30px auto;
+	}
+	
+form#venta{
+	width:700px;
+	margin:auto;
+	}
+
+#tabla{
+	width:100%;
+	font-family:"Century Gothic";
+	font-size:11px;
+	}
+#tabla tr th#oculto{
+	margin:0;
+	padding:0;
+	border:none;
+	}
+#tabla thead tr{
+	background-color:#A3321D;
+	}
+#tabla tbody tr.odd{
+	background-color:#F0F0F6;
+	}
+#tabla tbody tr.even{
+	background-color:#FFFFFF;
+	}
+#tabla thead tr th{
+	border:1px solid #999;
+	padding:0px 5px;
+	color:#FFFFFF;
+	vertical-align:middle;
+	}
+form#formPreVenta input[type="text"]#subTotal,
+form#formPreVenta input[type="text"]#total,
+form#formPreVenta input[type="text"]#descuento,
+form#formPreVenta input[type="text"]#bonificacion{
+	width:4.5em;
+	font-size:12px;
+	text-align:right;
+	background-color:transparent;
+	border:none;
+	/*font-weight:bold;*/
+	color:#000;
+	}
+form#formPreVenta input[type="text"]#cantidad,
+form#formPreVenta input[type="text"]#precio{ /* Para la fecha */
+	width:2.5em;
+	font-size:12px;
+	text-align:center;
+	background-color:transparent;
+	border:none;
+	/*font-weight:bold;*/
+	color:#000;
+}
+form#venta input[type="text"]#subTotal:hover,
+form#venta input[type="text"]#total:hover,
+form#venta input[type="text"]#cantidad:hover,
+form#venta input[type="text"]#precio:hover{
+	box-shadow: 0 0 0 #fff;
+	-webkit-box-shadow: 0 0 0 #fff;
+	-moz-box-shadow: 0 0 0 #fff;
+	border:none;
+}
+#tabla tbody tr td{
+	border:1px solid #999;
+	text-align:center;
+	}
+#tabla tbody tr td.det{
+	font-size:12px;
+	padding:0 5px;
+	}
+#tabla tfoot tr{
+	margin:5px 0;
+	}
+#tabla tfoot tr th{
+	text-align:right;
+	padding:0px 3px;
+	}
+.delet{
+	margin-top:5px;
+	}
+form#venta input[type="text"]#name,
+form#venta input[type="text"]#paterno,
+form#venta input[type="text"]#materno{
+	border:1px solid #666;
+	font-size:12px;
+	font-family:"Century Gothic";
+	background-color:#FFF;
+	width:8.5em;
+	text-align:left;
+	}
+form#venta input[type="text"]#nit{
+	border:1px solid #666;
+	font-size:12px;
+	font-family:"Century Gothic";
+	background-color:#FFF;
+	width:8.5em;
+	text-align:left;
+	}
+form#venta input[type="text"]#name:hover,
+form#venta input[type="text"]#name:focus,
+form#venta input[type="text"]#paterno:hover,
+form#venta input[type="text"]#paterno:focus,
+form#venta input[type="text"]#materno:hover,
+form#venta input[type="text"]#materno:focus{
+	box-shadow: 0 0 3px #207ce5;
+	-webkit-box-shadow: 0 0 3px #207ce5;
+	-moz-box-shadow: 0 0 3px #207ce5;
+	border:1px solid #207ce5;
+}
+
+form#venta input[type="text"]#materno:nit{
+	box-shadow: 0 0 3px #207ce5;
+	-webkit-box-shadow: 0 0 3px #207ce5;
+	-moz-box-shadow: 0 0 3px #207ce5;
+	border:1px solid #207ce5;
+}
+
+form#venta div.idealWrap > label {
+	width: 6em;  /* Label width */
+	float: left;
+	font-weight:bold;
+}
+
+form#venta div.Wrap{
+	margin: .5em 0;
+	width:222px;
+	float:left;
+}
+
+form#venta div.WrapD{
+	margin: .5em 0;
+	width:185px;
+	float:left;
+}
+
+form div.WrapEmp{
+	margin: .5em 0;
+	width:258px;
+	float:left;
+}
+div#caja{
+	border:1px #CCC solid;
+	padding:10px 5px;
+	width:200px;
+	margin:10px auto 10px auto;
+	background-color:#FBC62C;
+	
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	box-shadow: 0 2px 5px #333;
+	-webkit-box-shadow: 0 2px 5px #333;
+	-moz-box-shadow: 0 2px 5px #333;
+	}
+div#caja p{
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;
+	color:#333;
+	}
+form#caja a#cerrarCaja{
+	margin:10px 60px 5px ; 
+	}
+form div.WrapVenta{
+	margin: .5em 0;
+	width:295px;
+}
+form div.WrapVenta > label{
+	width: 8em;  /* Label width */
+	float: left;
+	font-weight:bold;
+	font-size:14px;
+	}
+form div.WrapVenta input[type="text"]{
+	font-size:14px;
+	}
+
+input[type="text"]#password, input[type="text"]#usuario{
+	text-transform:none;
+	}
