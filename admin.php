@@ -4,12 +4,12 @@
 
   session_start();
 
-  date_default_timezone_set("America/La_Paz" ) ;
+  date_default_timezone_set("America/La_Paz" );
   session_set_cookie_params(0,"/",$_SERVER["HTTP_HOST"],0);
 
   include 'adodb5/adodb.inc.php';
   include 'classes/function.php';
-  
+
   $op = new cnFunction();
 
   $db = NewADOConnection('mysqli');
@@ -17,21 +17,21 @@
   $db->Connect();
 
   if(!isset($_SESSION['idUser'])){
-	  header('location:index.php');
+    header('location:index.php');
   }else{
-	  $fechaGuardada = $_SESSION["ultimoAcceso"];
-	  $ahora = date("Y-n-j H:i:s");
-	  $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
+    $fechaGuardada = $_SESSION["ultimoAcceso"];
+    $ahora = date("Y-n-j H:i:s");
+    $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
 
-	  if($tiempo_transcurrido >= 2160){
-		  $user = $_SESSION["idUser"];
-		  $strQuery = 'UPDATE usuario SET status = "Inactivo", dateReg = "0000-00-00 00:00:00" WHERE id_usuario = "'.$user.'"';
-		  $str = $db->Execute($strQuery);
-		  session_destroy();
-		  header('location:index.php');
-	  }else{
-		  $_SESSION["ultimoAcceso"] = $ahora;
-		  }
+    if($tiempo_transcurrido >= 2160){
+      $user = $_SESSION["idUser"];
+      $strQuery = 'UPDATE usuario SET status = "Inactivo", dateReg = "0000-00-00 00:00:00" WHERE id_usuario = "'.$user.'"';
+      $str = $db->Execute($strQuery);
+      session_destroy();
+      header('location:index.php');
+    }else{
+      $_SESSION["ultimoAcceso"] = $ahora;
+      }
   }
 
   $sql = 'SELECT * ';
@@ -42,11 +42,11 @@
 
   $row = $reg->FetchRow();
 
-  $inc = strtoupper($row['nombre']);  
+  $inc = strtoupper($row['nombre']);
   $incp = strtoupper($row['apP']);
-    
+
   $_SESSION['inc'] = $inc[0].''.$incp[0].'-';
-  
+
   $cargo = $op->toSelect($row['cargo']);
 ?>
 <!DOCTYPE html>
@@ -118,13 +118,24 @@
 <script type="text/javascript" src="js/miScript.js"></script>
 
 <script>
+/**
+ * window.addEventListener('focus', function() {
+    document.title = 'Titulo del sitio';
+});
+
+window.addEventListener('blur', function() {
+    document.title = 'El segundo titulo';
+});
+ * @type {String}
+ */
 	var txt="EL VIEJO ROBLE - SISTEMA DE GESTION -";
 	var espera=200;
 	var refresco=null;
 	function rotulo_title() {
 			document.title=txt;
 			txt=txt.substring(1,txt.length)+txt.charAt(0);
-			refresco=setTimeout("rotulo_title()",espera);}
+			refresco=setTimeout('rotulo_title()',espera);
+    }
 	    rotulo_title();
 
 	$(document).ready(function(e) {
@@ -141,7 +152,7 @@
       </div><!--End title-->
       <div id="usuario">
         <p><?=$cargo;?></p>
-        <p id="user">Bienvenido.......!!!!: <?=$inc[0];?>.&nbsp;&nbsp; <?=$row['apP'];?></p>
+        <p id="user">Bienvenido: <?=$inc[0];?>.&nbsp;&nbsp; <?=$row['apP'];?></p>
         <p id="session"><a href="Javascript:void(0);" onclick="outSession('<?=$_SESSION['idUser'];?>');">Cerrar Sesi&oacute;n</a></p>
       </div><!--End usuario-->
       <div class="clearfix"></div>

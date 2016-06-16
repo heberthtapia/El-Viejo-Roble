@@ -17,21 +17,21 @@
 
 <script>
 	jQuery(document).ready(function(){
-		$h = $(window).height();			
+		$h = $(window).height();
 		$h = $h/2;
-		$h = Math.floor($h);					
-		$top = $h - 139;			
+		$h = Math.floor($h);
+		$top = $h - 139;
 		$('#logueo').css('margin-top',$top);
-		
+
 		$w = $(window).width();
 		$w = $w/2;
-		$w = Math.floor($w);					
-		$left = $w - 125;		//alert($left);	
-		$('#error').css('margin-left',$left);		
+		$w = Math.floor($w);
+		$left = $w - 125;		//alert($left);
+		$('#error').css('margin-left',$left);
 		$('#error').css('margin-top',-$top);
 
 		// binds form submission and fields to the validation engine
-		
+
 		jQuery("#login").validationEngine();
 	});
 </script>
@@ -42,7 +42,7 @@
     	<div id="title">
         	<p>ACCEDER AL SISTEMA</p>
         </div><!--End title-->
-    	<div class="linea"><img src="images/linea.png" width="341" height="2" alt="linea" /></div>    
+    	<div class="linea"><img src="images/linea.png" width="341" height="2" alt="linea" /></div>
         <p><br /><br />Por favor ingrese su usuario y contrase&ntilde;a para continuar</p>
         <div id="log_form">
         	<form id="login" name="login" action="javascript:verifica('login','password.php');">
@@ -55,7 +55,7 @@
         <div class="clearfix"></div>
         <div class="linea"><img src="images/linea.png" width="341" height="2" alt="linea" /></div>
     </div><!--End logueo-->
-	
+
 </body>
 </html>
 <style>
