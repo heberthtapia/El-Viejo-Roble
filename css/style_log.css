@@ -1,187 +1,285 @@
 /* CSS Document */
-@charset "utf-8";
+@charset 'utf-8';
 /*   RESET    */
 
-* { margin: 0; padding: 0; border: 0;}
+*{
+    margin: 0;
+    padding: 0;
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, striker, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;	
+    border: 0;
 }
-body {
-	line-height: 1;
 
-	font-size: 70%;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+striker,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td{
+    font-size: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    vertical-align: baseline;
+
+    border: 0;
+    outline: 0;
+    background: transparent;
 }
-ol, ul {
-	list-style: none;
+body{
+    font-size: 70%;
+    line-height: 1;
 }
-blockquote, q {
-	quotes: none;
+ol,
+ul{
+    list-style: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote,
+q{
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after{
+    content: '';
+    content: none;
 }
 
 /* remember to define focus atyles! */
-:focus {
-	outline: 0;
+:focus{
+    outline: 0;
 }
 
 /* remember to highlight inserts somehow */
-ins {
-	text-decoration: none;
+ins{
+    text-decoration: none;
 }
-del {
-	text-decoration: line-through;
+del{
+    text-decoration: line-through;
 }
 
 /* tables atill need 'cellspacing='0'' in the markup */
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
 /* MI RESET */
 
-h1 { font-size: 26px;}
-h2 { font-size: 20px;}
-h3 { font-size: 16px;}
-h4 { font-size: 14px;}
-h5 { font-size: 12px;}
-h6 { font-size: 10px;}
+h1{
+    font-size: 26px;
+}
+h2{
+    font-size: 20px;
+}
+h3{
+    font-size: 16px;
+}
+h4{
+    font-size: 14px;
+}
+h5{
+    font-size: 12px;
+}
+h6{
+    font-size: 10px;
+}
 
-li { list-style: none;}
-a { text-decoration: none; cursor:pointer;}
-a:hover { text-decoration: underline;}
+li{
+    list-style: none;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
 
 /* ESTILOS GENERALES */
 
 body{
-	background-image:url(../images/backgraund.jpg);
-	}
+    background-image: url(../images/backgraund.jpg);
+}
 
 div#logueo{
-	width:350px;
-	height:263px;
-	background-color:#eeeeee;
-	margin:auto;
-	padding:0 20px;
-	
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	
-	box-shadow: 0 0 15px #000000;
-	-webkit-box-shadow: 0 0 15px #000000;
-	-moz-box-shadow: 0 0 15px #000000;
-	
-	border:7px solid #cccccc;
-	}
+    width: 350px;
+    height: 263px;
+    margin: auto;
+    padding: 0 20px;
+
+    border: 7px solid #ccc;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    background-color: #eee;
+    -webkit-box-shadow: 0 0 15px #000;
+       -moz-box-shadow: 0 0 15px #000;
+            box-shadow: 0 0 15px #000;
+}
 div#logueo p{
-	font-family: "Trebuchet MS";
-	font-size:11px;
-	color:#666666;
-	}
+    font-family: 'Trebuchet MS';
+    font-size: 11px;
+
+    color: #666;
+}
 div#title{
-	height:13px;
-	padding:15px 0 5px 0;
-	}
+    height: 13px;
+    padding: 15px 0 5px 0;
+}
 div#title p{
-	font-family:"Trebuchet MS";
-	font-size:15px;
-	font-weight:bold;
-	color:#000000;
-	}
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #000;
+}
 div#log_form{
-	width:220px;
-	float:left;
-	margin:15px 0 0 0;
-	}
+    float: left;
+
+    width: 220px;
+    margin: 15px 0 0 0;
+}
 div#lock{
-	float:left;
-	width:95px;
-	height:128px;
-	background-image:url(../images/lock.png);
-	background-repeat:no-repeat;
-	margin:15px 0 0 35px;
-	}
+    float: left;
+
+    width: 95px;
+    height: 128px;
+    margin: 15px 0 0 35px;
+
+    background-image: url(../images/lock.png);
+    background-repeat: no-repeat;
+}
 
 input{
     border: 0 none;
-    background: none repeat scroll 0 0 transparent;
     outline: medium none;
+    background: none repeat scroll 0 0 transparent;
 }
 form#login{
-	font-size:11px;
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	margin-top:10px;
-	margin-bottom:0px;
-	}
-form#login input[type="text"],
-form#login input[type="password"]{
-	background-color:#FFF;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border:2px #cccccc solid;
-	padding:5px 10px;
-	color:#666666;
-	width:190px;
-	margin:0 0 13px 0;
-	}
-form#login input[type="submit"]{
-	background-image:url(../images/back-boton.png);
-	background-repeat:no-repeat;
-	padding:6px 28px 6px 0px;
-	font-size:11px;
-	font-weight:bold;
-	color:#FFF;
-	cursor:pointer;
-	display:block;
-	width:108px;
-	height:29px;
-	}
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-size: 11px;
+
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+form#login input[type='text'],
+form#login input[type='password']{
+    width: 190px;
+    margin: 0 0 13px 0;
+    padding: 5px 10px;
+
+    color: #666;
+    border: 2px #ccc solid;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    background-color: #fff;
+}
+form#login input[type='submit']{
+    font-size: 11px;
+    font-weight: bold;
+
+    display: block;
+
+    width: 108px;
+    height: 29px;
+    padding: 6px 28px 6px 0;
+
+    cursor: pointer;
+
+    color: #fff;
+    background-image: url(../images/back-boton.png);
+    background-repeat: no-repeat;
+}
 div#error{
-	width:250px;
-	background-color:#f9edbe;
-	padding:10px 0px;
-	position:absolute;
-	border:2px solid #f0c36d;
-	
-	border-radius: 0 0 5px 5px;
-	-moz-border-radius: 0 0 5px 5px;
-	-webkit-border-radius: 0 0 5px 5px;
-	display:none;
-	}
+    position: absolute;
+
+    display: none;
+
+    width: 250px;
+    padding: 10px 0;
+
+    border: 2px solid #f0c36d;
+    -webkit-border-radius: 0 0 5px 5px;
+       -moz-border-radius: 0 0 5px 5px;
+            border-radius: 0 0 5px 5px;
+    background-color: #f9edbe;
+}
 div#error p{
-	font-family:"Century Gothic";
-	font-size:14px;
-	color:#000;
-	text-align:center;
-	}
+    font-family: 'Century Gothic';
+    font-size: 14px;
+
+    text-align: center;
+
+    color: #000;
+}
 
 /* CLASES */
 
-.clearfix {
-width:0px;
-height:0px;
-display:block;
-clear:both;
-content:'.';
+.clearfix{
+    display: block;
+    clear: both;
+
+    width: 0;
+    height: 0;
+
+    content: '.';
 }

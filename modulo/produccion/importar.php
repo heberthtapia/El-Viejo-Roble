@@ -19,9 +19,9 @@
 	$strSql		= $db->Execute($strQuery);
 	$status		= $strSql->FetchRow();
 
-	if($status[0] == "Nueva Orden"){
+	if($status[0] == "En Espera"){
 
-		$strQuery = "UPDATE produccion SET statusProd = 2 ";
+		$strQuery = "UPDATE produccion SET statusProd = 4 ";
 		$strQuery.= "WHERE id_produccion = '".$data."' ";
 
 		$sql = $db->Execute($strQuery);

@@ -1,20 +1,20 @@
-<?PHP	
+<?PHP
 	session_start();
-	
+
 	include '../../adodb5/adodb.inc.php';
 	include '../../classes/function.php';
-	
+
 	$db = NewADOConnection('mysqli');
 	//$db->debug = true;
 	$db->Connect();
-	
+
 	$op = new cnFunction();
 ?>
 <style>
 .accPro {
     height: 45px;
     margin-top: 8px;
-    width: 200px;
+    width: 240px;
 	text-align:center;
 }
 .accionButton {
@@ -28,7 +28,7 @@
 	margin-left:5px;
 	}
 .status4{
-	background-color:#FD0004;
+	background-color: #FD0004;
 	color:#ffffff;
 	font-weight:bold;
 }
@@ -59,7 +59,7 @@
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="tableList" style="width:1000px">
   <thead>
     <tr>
-      <th width="20px">Nº</th>      
+      <th width="20px">Nº</th>
       <th>N° de Orden</th>
       <th>Codigo Producto</th>
       <th width="450px">Detalle</th>
@@ -67,8 +67,8 @@
       <th>Cant</th>
       <th>Fecha Inicio Producci&oacute;n</th>
       <th>Fecha Fin Producci&oacute;n</th>
-      <th>Status Producci&oacute;n</th>      
-      <th>Acciones</th>     
+      <th>Status Producci&oacute;n</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -76,27 +76,27 @@
       $sql	 = "SELECT * ";
       $sql	.= "FROM produccion ";
       $sql	.= "ORDER BY (id_produccion) DESC ";
-      
+
       $cont = 0;
-      
+
       $srtQuery = $db->Execute($sql);
 	  if($srtQuery === false)
 	  	die("failed");
-	  
+
     while( $row = $srtQuery->FetchRow()){
-	
+
     ?>
       <tr id="tb<?=$row[0]?>">
           <td class="last center"></td>
-          <td class="last center">OR-P-<?=$row['id_produccion'];?></td>          
+          <td class="last center">OR-P-<?=$row['id_produccion'];?></td>
           <td class="last center"><?=$row['id_inventario'];?></td>
           <td class="last center"><?=$row['detalle'];?></td>
           <td class="last center"><?=$row['volumen'];?></td>
           <td class="last center"><?=$row['cantidad'];?></td>
           <td class="last center"><?=$row['dateInc'];?></td>
-          <td class="last center"><?=$row['dateFin'];?></td>  
-          <?PHP		 
-		  if(strcmp($row['statusProd'], 'En Espera') == 0){
+          <td class="last center"><?=$row['dateFin'];?></td>
+          <?PHP
+		  if(strcmp($row['statusProd'], 'Nueva Orden') == 0){
 			  $st="status1";
 		  }else{
 			  if(strcmp($row['statusProd'], 'En Produccion') == 0){
@@ -111,59 +111,65 @@
 		  ?>
           <td class="last center <?=$st;?>">
           	<?=$row['statusProd'];?>
-          </td>          
+          </td>
           <td>
           	<div class="accPro">
-            
+
               <div class="accion">
               	<a class="tooltip aprob" href="javascript:void(0);" onClick="sProAprobado('<?=$row[0]?>');" title="Aprobar Orden">
-                    <img src="images/icono/checkOff.png" width="32"/>                    
-                </a>                    
+                    <img src="images/icono/checkOff.png" width="32"/>
+                </a>
               </div><!--End accion-->
-              
+
               <div class="accion">
               	<a class="tooltip cancel" href="javascript:void(0);" onClick="sProCancelar('<?=$row[0]?>');" title="Cancelar Orden">
-                    <img src="images/icono/delOff.png" width="32" alt="Cancelar" />                     
-                </a>                           	
+                    <img src="images/icono/delOff.png" width="32" alt="Cancelar" />
+                </a>
               </div><!--End accion-->
-              
+
+              <div class="accion">
+              	<a class="tooltip terminar" href="javascript:void(0);" onClick="sProTerminado('<?=$row[0]?>');" title="Orden Terminada">
+                    <img src="images/icono/asig.png" width="32" alt="Orden Terminada" />
+                </a>
+              </div><!--End accion-->
+
               <div class="accion">
               	<a class="tooltip import" href="javascript:void(0);" onClick="open_win('modulo/produccion/aprobar.php', '', '710', '310', '<?=$row['id_produccion']?>');" title="Importar al Inventario">
-                    <img src="images/icono/import32.png" width="32" alt="Importar" />                     
-                </a>                           	
+                    <img src="images/icono/import32.png" width="32" alt="Importar" />
+                </a>
               </div><!--End accion-->
-                          
+
               <div class="accion">
                 <a class="tooltip edit" href="javascript:void(0);" onClick="open_win('modulo/produccion/aprobar.php', '', '710', '310', '<?=$row['id_produccion']?>');" title="Editar Orden">
                     <img src="images/icono/edit1.png" width="32" alt="Editar"/>
                 </a>
               </div><!--End accion-->
-              
+
               <div class="accion">
                 <a class="tooltip del" href="javascript:void(0);" onclick="deleteRow('delProducto.php', '<?=$row['id_produccion']?>', 'producto','inventario');" title="Eliminar Orden" >
                     <img src="images/icono/recycle.png" width="32" height="32" alt="Eliminar"/>
                 </a>
-              </div><!--End accion-->             
+              </div><!--End accion-->
               <div class="cleafix"></div>
-                         
+
            	</div><!--End accPro-->
-            
+
           </td>
-      </tr>                  
-    <?PHP		
-      }                        
+      </tr>
+    <?PHP
+      }
     ?>
   </tbody>
   <tfoot>
     <tr>
       <th>Nº</th>
-      <th>N° de Orden</th>     
+      <th>N° de Orden</th>
       <th>Codigo Producto</th>
       <th>Detalle</th>
       <th>Vol</th>
       <th>Cant</th>
       <th>Fecha Inicio Producci&oacute;n</th>
-      <th>Fecha Fin Producci&oacute;n</th>    
+      <th>Fecha Fin Producci&oacute;n</th>
       <th>Status Producci&oacute;n</th>
       <th>Acciones</th>
     </tr>
@@ -173,30 +179,30 @@
 <div class="clearfix"></div>
 
 <script type="text/javascript">
-//========DataTables========	
-var oTable;	
-$(document).ready(function() { 	
+//========DataTables========
+var oTable;
+$(document).ready(function() {
 	/* idealForm */
 	$('.accProd').idealForms();
 
-	deleteRow = function(p, idTr, tipo, table){ 
+	deleteRow = function(p, idTr, tipo, table){
 
 		var respuesta = confirm("SEGURO QUE DESEA ELIMINAR EL "+" ' "+tipo.toUpperCase()+" ' ");
-			  
-		if(respuesta){	
-			var i = 1;			
+
+		if(respuesta){
+			var i = 1;
 			$('#tb'+idTr).addClass('row_selected');
 			var anSelected = fnGetSelected( oTable );
-			if ( anSelected.length !== 0 ) {				
+			if ( anSelected.length !== 0 ) {
 				r = deleteRowBD(p, idTr, tipo, table);
-				if(r==1)					
-					oTable.fnDeleteRow( anSelected[0] );				
+				if(r==1)
+					oTable.fnDeleteRow( anSelected[0] );
 				else
 					$('#tb'+idTr).removeClass('row_selected');
-			}		
+			}
 		}
-	  }
-			
+	  };
+
   /* Init the table */
   oTable = $('#tableList').dataTable({
 	  "bFilter": true,
@@ -219,7 +225,7 @@ $(document).ready(function() {
 		   "sSearch": "Buscar: "
 		  },
 	  /*"aoColumnDefs": [
-		   { "bVisible": false, "aTargets": [ 1 ] 
+		   { "bVisible": false, "aTargets": [ 1 ]
 		   }
 		  ],*/
 	  "oColVis": {
@@ -227,9 +233,9 @@ $(document).ready(function() {
 			"buttonText": "&nbsp;",
 			"bRestore": true,
 			"sAlign": "right"
-		  }					
+		  }
 	});
-	
+
 	$('.tooltip').tooltipster({
 		animation: 'swing',
 		delay: 200,
@@ -241,34 +247,55 @@ $(document).ready(function() {
   {
 	  return oTableLocal.$('tr.row_selected');
   }
-  
+
   function sProAprobado(id){
-  	var val = $('tr#tb'+id).find('td.status1').text();	
+  	var val = $('tr#tb'+id).find('td.status1').text();
 	$.ajax({
 		url: 'modulo/produccion/aprobar.php',
-		type: 'post',				
+		type: 'post',
 		cache: false,
-		data:{res:id},		
-		success: function(data){				
+		data:{res:id},
+		success: function(data){
 				$('tr#tb'+id).find('td.status1').addClass('status2');
 				$('tr#tb'+id).find('td.status1').text('En Produccion');
-				$('tr#tb'+id).find('td.status1').removeClass('status1');		
+				$('tr#tb'+id).find('td.status1').removeClass('status1');
 		}
-	});	
+	});
   }
-  
+
   function sProCancelar(id){
-  	var val = $('tr#tb'+id).find('td.status1').text();	
+  	var val = $('tr#tb'+id).find('td.status1').text();
 	$.ajax({
 		url: 'modulo/produccion/cancelar.php',
-		type: 'post',				
+		type: 'post',
 		cache: false,
-		data:{res:id},		
-		success: function(data){				
+		data:{res:id},
+		success: function(data){
+			if(data === "1"){
 				$('tr#tb'+id).find('td.status1').addClass('status4');
 				$('tr#tb'+id).find('td.status1').text('Cancelado');
-				$('tr#tb'+id).find('td.status1').removeClass('status1');		
+				$('tr#tb'+id).find('td.status1').removeClass('status1');
+			}else{
+				alert('En este momento no se puede cancelar la Orden');
+			}
 		}
-	});	
+	});
+  }
+
+  function sProTerminado(id){
+  	var val = $('tr#tb'+id).find('td.status2').text();
+	$.ajax({
+		url: 'modulo/produccion/terminar.php',
+		type: 'post',
+		cache: false,
+		data:{res:id},
+		success: function(data){
+
+				$('tr#tb'+id).find('td.status2').addClass('status3');
+				$('tr#tb'+id).find('td.status2').text('Terminado');
+				$('tr#tb'+id).find('td.status2').removeClass('status1');
+
+		}
+	});
   }
 </script>
