@@ -10,6 +10,9 @@
 
 	$fecha = $op->ToDay();
 	$hora = $op->Time();
+
+	$srtSql = "SELECT * FROM empleado WHERE cargo = 'pre' ";
+	$srtQuery = $db->Execute($srtSql);
 ?>
 <script>
 
@@ -57,19 +60,25 @@ form div.WrapCOD {
 form div.WrapDET {
     width: 460px;
 }
+input#cant[type="text"] {
+    margin: 0px;
+    width: 6em;
+}
+form div.Wrap {
+    width: 233px;
+}
 </style>
 
   <form id="form" class="ideal-form" action="javascript:saveOrdenP('form','save.php')" >
   	<fieldset>
       <legend>N U E V A&nbsp;&nbsp;&nbsp;O R D E N&nbsp;&nbsp;&nbsp;D E&nbsp;&nbsp;&nbsp;P R O D U C I &Oacute; N</legend>
         <div class="idealWrap WrapDS">
-        <label class="date">Fecha Inicio: </label>
+        <label class="date">Fecha: </label>
         <input id="fecha" name="fecha" type="text" value="<?=$fecha;?> <?=$hora;?>" disabled="disabled" />
         <input id="date" name="date" type="hidden" value="<?=$fecha;?> <?=$hora;?>" />
         <input id="tabla" name="tabla" type="hidden" value="produccion" />
         </div><!--End idealWrap-->
         <div class="clearfix"></div>
-        <br>
 
         <div class="idealWrap WrapCOD">
         <input id="idInv" name="idInv" type="text" placeholder="Codigo" class="validate[required,maxSize[20],custom[onlyLetterSpacio]] text-input" value="" />
@@ -80,18 +89,35 @@ form div.WrapDET {
         </div><!--End idealWrap-->
         <div class="clearfix"></div>
 
-        <div class="idealWrap WrapCOD">
+        <div class="idealWrap Wrap">
+        <label>Cantidad a designar: </label>
         <input id="cant" name="cant" type="text" placeholder="Cantidad" value="" class="validate[required, custom[number]] text-input" />
         </div><!--End idealWrap-->
+        <div class="clearfix"></div>
 
-        <div class="idealWrap WrapCOD">
-        <input id="vol" name="vol" type="text" placeholder="Volumen" value="" class="validate[required, custom[number]] text-input" />
+        <p style="text-align: center; font-weight: bold; font-size: 14px; margin: 10px 0; color: #112863">ASIGNAR A LOS VENDEDORES</p>
+
+        <?php  
+         while( $row = $srtQuery->FetchRow() ){
+        ?>
+
+        <div class="idealWrap Wrap">
+        <label><?=$row['nombre'].' '.$row['apP'];?>: </label>
+        <input id="cant" name="cant" type="text" placeholder="Cantidad" value="" class="validate[required, custom[number]] text-input" />
         </div><!--End idealWrap-->
+        <div class="clearfix"></div>
+
+        <?php
+    	}
+        ?>
+
+
 
 	</fieldset>
-   		<div class="idealWrap" align="center">
-			<input type="reset" id="reset" value="Limpiar..."/>
-			<input type="submit" id="save" value="Guardar..."/>
+
+		<div class="idealWrap" align="center">
+			<input id="reset" type="reset" onclick="clearForm('form');" value="Limpiar...">
+			<input id="save" type="submit" value="Guardar...">
 		</div>
 
   </form>
