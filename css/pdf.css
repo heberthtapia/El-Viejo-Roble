@@ -1,34 +1,35 @@
-table.report{
-	font-size:11px;
-	}
-table.report thead tr,
-table.report tfoot tr{	
-	background-color:#A3321D;
-	}
-table.report thead tr th,
-table.report tfoot tr th{
-	padding:10px 15px;
-	/*text-align:center;*/
-	color:#FFFFFF;
-	}
-table.report tbody tr td{
-	padding:10px 5px;
-	}
-table.report tbody tr.even{
-	background-color:#f1eded;
-	}
-table.report tr.footer th{
-	padding:10px 8px;
-	}
-div#producto p{
-	margin-left:20px;
-	}
-h4{
-	color:#A3321D;
-	}
+table.report {
+    font-size: 11px;
+}
+table.report thead tr, table.report tfoot tr {
+    background-color: #a3321d;
+}
+table.report thead tr th, table.report tfoot tr th {
+    padding: 10px 15px;
+    /*text-align:center;*/
 
-table#datos p span{
-	display:block;
-	width:400px;
-	color:rgba(243,0,4,1.00);
-	}
+    color: #fff;
+}
+table.report tbody tr td {
+    padding: 10px 5px;
+}
+table.report tbody tr.even {
+    background-color: #f1eded;
+}
+table.report tr.footer th {
+    padding: 10px 8px;
+}
+div#producto p {
+    margin-left: 20px;
+}
+h4 {
+    color: #a3321d;
+}
+
+table#datos p span {
+    display: block;
+
+    width: 400px;
+
+    color: rgba(243,0,4,1.00);
+}

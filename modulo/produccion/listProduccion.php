@@ -134,7 +134,7 @@
               </div><!--End accion-->
 
               <div class="accion">
-              	<a class="tooltip import" href="javascript:void(0);" onClick="open_win('modulo/produccion/aprobar.php', '', '710', '310', '<?=$row['id_produccion']?>');" title="Importar al Inventario">
+              	<a class="tooltip import" href="javascript:void(0);" onClick="open_win('modulo/produccion/importar.php', '', '710', '310', '<?=$row['id_produccion']?>');" title="Importar al Inventario">
                     <img src="images/icono/import32.png" width="32" alt="Importar" />
                 </a>
               </div><!--End accion-->
