@@ -520,6 +520,7 @@ function saveOrdenP(idForm, p){
 		async:true,
 		data:{res:dato},
 		success: function(data){
+			parent.$.colorbox.close();
 			despliega('modulo/produccion/listProduccion.php','contenido');
 			window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
 		},
@@ -529,9 +530,13 @@ function saveOrdenP(idForm, p){
 	});
 }
 
-/* GUARDA PRODUCCION POR VENDEDOR */
+/**
+ * Funcion para guardar la asignacion de cada produccion
+ * @param idForm
+ * @param p
+ */
 
-function saveInvPro(idForm, p){
+function saveInvPro(idForm, p, id){
 
 	var dato = JSON.stringify( $('#'+idForm).serializeObject() );
 	$.ajax({
@@ -541,9 +546,14 @@ function saveInvPro(idForm, p){
 		async:true,
 		data:{res:dato},
 		success: function(data){
-			alert(data);
-			despliega('modulo/produccion/listProduccion.php','contenido');
-			window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
+			parent.$.colorbox.close();
+
+			$('tr#tb'+id).find('td.status3').addClass('status4');
+			$('tr#tb'+id).find('td.status3').text('Terminado y Asignado');
+			$('tr#tb'+id).find('td.status3').removeClass('status3');
+			//alert(data);
+			//despliega('modulo/produccion/listProduccion.php','contenido');
+			//window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
 		},
 		error: function(data){
 			alert('Error al guardar el formulario');

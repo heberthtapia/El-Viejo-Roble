@@ -21,7 +21,7 @@
 
 	if($status[0] == "Nueva Orden"){
 
-		$strQuery = "UPDATE produccion SET statusProd = 4 ";
+		$strQuery = "UPDATE produccion SET statusProd = 5,  ";
 		$strQuery.= "WHERE id_produccion = '".$data."' ";
 
 		$sql = $db->Execute($strQuery);

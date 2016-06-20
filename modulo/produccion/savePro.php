@@ -14,15 +14,21 @@
 	$hora = $op->Time();	
 	
 	$data = stripslashes($_POST['res']);
-	
 	$data = json_decode($data);
-	
-	//$cargo = $op->toCargo($data->cargo);
-		
-	$strQuery = "INSERT INTO produccion (id_inventario, detalle, volumen, cantidad, dateInc, status ) ";
-	$strQuery.= "VALUES ('".$data->idInv."', '".$data->detalle."', '".$data->vol."', '".$data->cant."', ";
-	$strQuery.= "'".$data->date."', 'Activo' )";
-	
+
+	$srtSql = "SELECT * FROM empleado WHERE cargo = 'pre' ";
+	$srtSqlId = $db->Execute($srtSql);
+
+	while ($srtId = $srtSqlId->FetchRow()) {
+		$strQuery = "INSERT INTO inventarioPre ( id_inventario, id_produccion, id_empleado, cantidad, dateReg, status ) ";
+		$strQuery .= "VALUES ('".$data->idInv."', '".$data->idP."' '".$srtId['id_empleado']."', '" . $data->$srtId['id_empleado'] . "', ";
+		$strQuery .= "'" . $data->date . "', 'Activo' )";
+		$sql = $db->Execute($strQuery);
+	}
+
+	$strQuery = "UPDATE produccion SET statusProd = 4, cantidad = $data->cant ";
+	$strQuery.= "WHERE id_produccion = '".$data->idP."' ";
+
 	$sql = $db->Execute($strQuery);
 	
 	if($sql)	

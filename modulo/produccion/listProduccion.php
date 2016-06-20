@@ -27,8 +27,8 @@
 	/*float:left;*/
 	margin-left:5px;
 	}
-.status4{
-	background-color: #FD0004;
+.status1{
+	background-color:#f58400;
 	color:#ffffff;
 	font-weight:bold;
 }
@@ -36,17 +36,22 @@
 	background-color:#FCFB00;
 	color:#000000;
 	font-weight:bold;
-	}
-.status1{
+  }
+.status3{
 	background-color:#1D5EA3;
 	color:#ffffff;
 	font-weight:bold;
-	}
-.status3{
-	background-color:#8ad120;
+}
+.status4{
+	background-color: #8AD120;
 	color:#ffffff;
 	font-weight:bold;
-	}
+}
+.status5{
+	background-color: #AA0000;
+	color:#ffffff;
+	font-weight:bold;
+}
 </style>
 
 <div class="titulo">
@@ -102,11 +107,14 @@
 		  }else{
 			  if(strcmp($row['statusProd'], 'En Produccion') == 0){
 			  	$st="status2";
-		  	  }else{
-				  if(strcmp($row['statusProd'], 'Cancelado') == 0){
-			  		$st="status4";
-		  	  }else
-			  	$st="status3";
+		  	  }else {
+				  if (strcmp($row['statusProd'], 'Terminado') == 0) {
+					  $st = "status3";
+				  } else
+					  if (strcmp($row['statusProd'], 'Terminado y Asignado') == 0) {
+						  $st = "status4";
+					  } else
+						  $st = "status5";
 			  }
 		  }
 		  ?>
@@ -273,7 +281,7 @@ $(document).ready(function() {
 		data:{res:id},
 		success: function(data){
 			if(data === "1"){
-				$('tr#tb'+id).find('td.status1').addClass('status4');
+				$('tr#tb'+id).find('td.status1').addClass('status5');
 				$('tr#tb'+id).find('td.status1').text('Cancelado');
 				$('tr#tb'+id).find('td.status1').removeClass('status1');
 			}else{
@@ -294,7 +302,7 @@ $(document).ready(function() {
 
 				$('tr#tb'+id).find('td.status2').addClass('status3');
 				$('tr#tb'+id).find('td.status2').text('Terminado');
-				$('tr#tb'+id).find('td.status2').removeClass('status1');
+				$('tr#tb'+id).find('td.status2').removeClass('status2');
 
 		}
 	});
