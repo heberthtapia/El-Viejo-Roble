@@ -1,25 +1,25 @@
 <?PHP
 	include '../../adodb5/adodb.inc.php';
 	include '../../classes/function.php';
-	
+
 	$db = NewADOConnection('mysqli');
 	//$db->debug = true;
 	$db->Connect();
-	
+
 	$op = new cnFunction();
-	
-	$fecha = $op->ToDay();    
-	$hora = $op->Time();	
-	
+
+	$fecha = $op->ToDay();
+	$hora = $op->Time();
+
 	$strQuery = "SELECT max(id_pedido) FROM pedido ";
-	$lastId = $db->Execute($strQuery)->FetchRow();	
+	$lastId = $db->Execute($strQuery)->FetchRow();
 	if(!$lastId[0])
 		$lastId[0] = 1;
 	else
-		$lastId[0]++;	
+		$lastId[0]++;
 ?>
 <style>
-a.button{	
+a.button{
 	width:8.5em;
 	}
 .obs{
@@ -152,25 +152,25 @@ a {color: #FF7361}
 </style>
 <div class="titulo">
   <div class="subTit"><p class="text_titulo">PEDIDO</p></div>
-  
+
   <form id="formPreVenta" class="ideal-form" action="javascript:savePedido('formPreVenta','savePedido.php')" >
-  
+
   <div id="preventa">
-  	<div id="preizq">            
+  	<div id="preizq">
         <div class="idealWrap WrapPre">
         <label class="ped">FECHA: </label>
         <input id="fecha" name="fecha" type="text" value="<?=$fecha;?> <?=$hora;?>" disabled="disabled" />
         <input id="date" name="date" type="hidden" value="<?=$fecha;?> <?=$hora;?>" />
         </div><!--End idealWrap-->
         <div class="clearfix"></div>
-        
+
         <div class="idealWrap">
         <label class="ped">Cliente: </label>
         <input id="cliente" name="cliente" type="text" class="validate[required] text-input"/>
-        <input id="idCliente" name="idCliente" type="hidden" value="" />         
+        <input id="idCliente" name="idCliente" type="hidden" value="" />
         </div><!--End idealWrap-->
     </div><!--End preizq-->
-    <div id="preder">    
+    <div id="preder">
         <div class="idealWrap WrapPre">
         <label class="ped">N&deg; pedido: </label>
         <input id="pedido" name="pedido" type="text" disabled value="PD-<?=$op->ceros($lastId[0],7);?>"/>
@@ -178,112 +178,112 @@ a {color: #FF7361}
         </div><!--End idealWrap-->
     </div><!--End preder-->
     <div class="clearfix"></div>
-    
+
     <div id="ventIzq">
       <div id="ventIq">
         <p>NUEVO PRODUCTO</p>
-        <div class="idealWrap WrapPre">        
+        <div class="idealWrap WrapPre">
         <label class="ped">Producto: </label>
         <input id="producto" name="producto" type="text"/>
         </div><!--End idealWrap-->
-        
+
         <div class="idealWrap WrapPre">
         <label class="ped">Cantidad: </label>
         <input id="cant" name="cant" type="text" autocomplete="off"/>
-        </div><!--End idealWrap-->            
-        <div class="clearfix"></div>                  
-        
-        <div class="idealWrap" align="center">			
+        </div><!--End idealWrap-->
+        <div class="clearfix"></div>
+
+        <div class="idealWrap" align="center">
             <input type="button" id="confPedido" value="Añadir" onclick="adicFila('formPreVenta','producto.php');"/>
         </div>
       </div>
-             
-        <div class="idealWrap" align="center">			
+
+        <div class="idealWrap" align="center">
             <input type="submit" id="submit" value="Confirmar Pedido" class="formPedido"/>
         </div>
-        
-        <div class="idealWrap" align="center">			
+
+        <div class="idealWrap" align="center">
             <input type="button" id="cancelar" value="Cancelar" class="formPedido" onclick=""/>
         </div>
-        
-        <div class="idealWrap" align="center">			
+
+        <div class="idealWrap" align="center">
             <input type="button" id="imprimir" value="Imprimir" class="formPedido" onclick=""/>
         </div>
-         
+
      </div><!--End ventIzq-->
-     
+
      <div id="ventCent">
-     
+
       <table id="tabla" align="center" width="450">
           <thead>
             <tr>
-              <th width="270">PRODUCTO</th>              
-              <th>CANT.</th>              
+              <th width="270">PRODUCTO</th>
+              <th>CANT.</th>
               <th width="60">P. UNIT (Bs)</th>
               <th>DESC.</th>
               <th>BONIF.</th>
-              <th width="80">SUBTOTAL (Bs)</th>              
+              <th width="80">SUBTOTAL (Bs)</th>
               <th id="oculto"></th>
             </tr>
           </thead>
           <tbody>
-              
+
           </tbody>
           <tfoot hidden="">
               <tr>
-                  <th colspan="5">SUB-TOTAL:</th>            
+                  <th colspan="5">SUB-TOTAL:</th>
                   <th>
                       <input type="text" disabled="disabled" id="subTotal" name="subTotal" value="0" >Bs
                       <input type="hidden" id="subTotal" name="subTotal" value="0" >
                   </th>
-                  <th></th>          
+                  <th></th>
               </tr>
               <tr>
-                  <th colspan="5">DESCUENTO:</th>            
-                  <th>            
+                  <th colspan="5">DESCUENTO:</th>
+                  <th>
                       <input type="text" id="descuento" name="descuento" autocomplete="off" onKeyUp="calculaDes();" > Bs
-                  </th>    
-                  <th></th>        
+                  </th>
+                  <th></th>
               </tr>
               <tr>
-                  <th colspan="5">BONIFICACI&Oacute;N:</th>            
-                  <th>            
+                  <th colspan="5">BONIFICACI&Oacute;N:</th>
+                  <th>
                       <input type="text" id="bonificacion" name="bonificacion" autocomplete="off" onKeyUp="calculaDes();" > Bs
-                  </th>    
-                  <th></th>        
-              </tr>              
+                  </th>
+                  <th></th>
+              </tr>
               <tr>
-                  <th colspan="5">TOTAL:</th>            
+                  <th colspan="5">TOTAL:</th>
                   <th>
                       <input type="text" disabled="disabled" id="total" name="total" value="0" />Bs
                       <input type="hidden" id="total" name="total" value="0" />
                   </th>
-              </tr>              
+              </tr>
           </tfoot>
-          
+
       </table >
 
      </div><!--End ventCent-->
-     
+
      <div id="ventDer">
       <div id="ventDe">
-        <p>FORMA DE PAGO</p>           
-        <div class="idealWrap WrapV">        
+        <p>FORMA DE PAGO</p>
+        <div class="idealWrap WrapV">
         <label class="rp"><input type="radio" value="con" name="tipo" id="tipo" class="validate[required]"><span>&nbsp;</span>AL CONTADO</label>
-        <label class="rp"><input type="radio" value="cre" name="tipo" id="tipo" class="validate[required]"><span>&nbsp;</span>AL CREDITO</label>      
+        <label class="rp"><input type="radio" value="cre" name="tipo" id="tipo" class="validate[required]"><span>&nbsp;</span>AL CREDITO</label>
         </div><!--End idealWrap-->
         <div class="clearfix"></div>
        </div>
-        <div class="idealWrap obs">        
+        <div class="idealWrap obs">
         <label class="ped">Observaciones: </label>
         <textarea id="obs" name="obs"></textarea>
         </div><!--End idealWrap-->
-        
+
      </div><!--End ventDer-->
-     
+
      <div id="ventDer">
       <div id="listaProd">
-        <p>LISTA DE PRODUCTOS</p>           
+        <p>LISTA DE PRODUCTOS</p>
         <?PHP
 			$sqlProd = "SELECT id_inventario, detalle FROM inventario ORDER BY id_inventario DESC";
 			$sql = $db->Execute($sqlProd);
@@ -307,23 +307,23 @@ a {color: #FF7361}
 			 }
 			?>
         </tbody>
-        </table>       
-       </div>                
+        </table>
+       </div>
      </div><!--End ventDer-->
-  
+
   <div class="clearfix"></div>
   </div><!--End preventa-->
-  
+
   </form>
   <div class="clearfix"></div>
 </div><!--End titulo-->
 
 
 <script type="text/javascript" charset="utf-8">
-//========DataTables========	
-var oTable;	
-$(document).ready(function() { 	
-	
+//========DataTables========
+var oTable;
+$(document).ready(function() {
+
 	function log( message ) {
 		$( "input#idCliente" ).val( message );
 		//$( "#log" ).scrollTop( 0 );
@@ -332,10 +332,10 @@ $(document).ready(function() {
 		source: "classes/search.php",
 		minLength: 2,
 		select: function( event, ui ) {
-			log( ui.item.id 
-							
+			log( ui.item.id
+
 				/*"Selected: " + ui.item.value + " aka " + ui.item.id :
-				"Nothing selected, input was " + this.value*/ 
+				"Nothing selected, input was " + this.value*/
 				);
 		}
 	});
@@ -346,22 +346,22 @@ $(document).ready(function() {
 		prettySelect	: true,
 		useSuffix		: "_chosen"
 	   // scroll		: false,
-	});	
+	});
 
-	deleteRow = function(p, idTr, table){ 
+	deleteRow = function(p, idTr, table){
 
 	var respuesta = confirm("SEGURO QUE DESEA ELIMINAR EL "+" ' "+table.toUpperCase()+" ' ");
-	 	  
-	if(respuesta){	
+
+	if(respuesta){
 		var i = 1;
 		$('#tb'+idTr).addClass('row_selected');
 		var anSelected = fnGetSelected( oTable );
-		
+
 		if ( anSelected.length !== 0 ) {
 			oTable.fnDeleteRow( anSelected[0] );
 			deleteRowBD(p, idTr, table);
-		}	
+		}
 	}
-  }
+  };
 });
 </script>

@@ -10,10 +10,10 @@ include("../adodb5/adodb.inc.php");
 
 $db = NewADOConnection('mysqli');
 //$db->debug = true;
-$db->Connect("localhost", "root", "mysql", "bd_elviejoroble");	
+$db->Connect("localhost", "root", "mysql", "bd_elviejoroble");
 
 $sql = "SELECT id_inventario FROM inventario WHERE id_inventario = '".$validateValue."' ";
-	
+
 $strQ = $db->Execute($sql);
 
 $row = $strQ->FetchRow();
@@ -32,7 +32,7 @@ if($validateValue != $row[0]){		// validate??
 			echo json_encode($arrayToJs);		// RETURN ARRAY WITH ERROR
 		}
 	}
-	
+
 }
 
 ?>

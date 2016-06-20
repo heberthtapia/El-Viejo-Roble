@@ -307,7 +307,6 @@ function adicFila(idForm, p){
 function adicFilaEdit(idForm, p){
 	"use strict";
 	var dato = JSON.stringify( $('#'+idForm).serializeObject() );
-	//alert(dato);
 	$.ajax({
 		url: "classes/"+p,
 		type: 'post',
@@ -521,6 +520,28 @@ function saveOrdenP(idForm, p){
 		async:true,
 		data:{res:dato},
 		success: function(data){
+			despliega('modulo/produccion/listProduccion.php','contenido');
+			window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
+		},
+		error: function(data){
+			alert('Error al guardar el formulario');
+			}
+	});
+}
+
+/* GUARDA PRODUCCION POR VENDEDOR */
+
+function saveInvPro(idForm, p){
+
+	var dato = JSON.stringify( $('#'+idForm).serializeObject() );
+	$.ajax({
+		url: "modulo/produccion/"+p,
+		type: 'post',
+		dataType: 'json',
+		async:true,
+		data:{res:dato},
+		success: function(data){
+			alert(data);
 			despliega('modulo/produccion/listProduccion.php','contenido');
 			window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
 		},

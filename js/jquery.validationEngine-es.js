@@ -11,7 +11,7 @@
                     "alertTextCheckboxMultiple": "* Por favor seleccione una opción",
                     "alertTextCheckboxe": "* Este checkbox es obligatorio"
                 },
-                "requiredInFunction": { 
+                "requiredInFunction": {
                     "func": function(field, rules, i, options){
                         return (field.val() == "test") ? true : false;
                     },
@@ -46,7 +46,7 @@
                 "future": {
                     "regex": "none",
                     "alertText": "* Fecha posterior a "
-                },	
+                },
                 "maxCheckbox": {
                     "regex": "none",
                     "alertText": "* Se ha excedido el número de opciones permitidas"
@@ -97,7 +97,7 @@
                     // Number, including positive, negative, and floating decimal. credit: orefalo
                     "regex": /^[\-\+]?((([0-9]{1,3})([,][0-9]{3})*)|([0-9]+))?([\.]([0-9]+))?$/,
                     "alertText": "* No es un valor decimal válido"
-                },				
+                },
                 "date": {
                     //"regex": /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
 					"regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/,
@@ -186,7 +186,7 @@
                     "alertText": "* Por favor entrar HELLO"
                 }
             };
-            
+
         }
     };
     $.validationEngineLanguage.newLang();
