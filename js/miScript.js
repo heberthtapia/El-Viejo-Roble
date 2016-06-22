@@ -508,7 +508,7 @@ function savePedido(idForm, p){
 
 function saveOrdenP(idForm, p){
 
-	if( !confirm('CONFIRMAR ORDEN DE PRODUCCION!!!') ){
+	if( !confirm('CONFIRMAR ORDEN DE PRODUCCION !!!') ){
 		return;
 	}
 
@@ -522,7 +522,7 @@ function saveOrdenP(idForm, p){
 		success: function(data){
 			parent.$.colorbox.close();
 			despliega('modulo/produccion/listProduccion.php','contenido');
-			window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
+			//window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
 		},
 		error: function(data){
 			alert('Error al guardar el formulario');

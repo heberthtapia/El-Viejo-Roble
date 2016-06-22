@@ -57,7 +57,7 @@
 <div class="titulo">
   <div class="subTit"><p class="text_titulo">Ordenes de Producci&oacute;n</p></div>
   <div class="new">
-  	<a onClick="open_win('modulo/produccion/newProduccion.php', '', '620', '310');"><img src="images/add.png" width="24" height="24"><span>NUEVO...</span></a>
+  	<a onClick="open_win('modulo/produccion/newProduccion.php', '', '600', '310');"><img src="images/add.png" width="24" height="24"><span>NUEVO...</span></a>
   </div>
   <div class="clearfix"></div>
 </div><!--End titulo-->
@@ -69,7 +69,6 @@
       <th>N° de Orden</th>
       <th>Codigo Producto</th>
       <th width="450px">Detalle</th>
-      <th>Vol</th>
       <th>Cant</th>
       <th>Fecha Inicio Producci&oacute;n</th>
       <th>Fecha Fin Producci&oacute;n</th>
@@ -97,7 +96,7 @@
           <td class="last center">OR-P-<?=$row['id_produccion'];?></td>
           <td class="last center"><?=$row['id_inventario'];?></td>
           <td class="last center"><?=$row['detalle'];?></td>
-          <td class="last center"><?=$row['volumen'];?></td>
+
           <td class="last center"><?=$row['cantidad'];?></td>
           <td class="last center"><?=$row['dateInc'];?></td>
           <td class="last center"><?=$row['dateFin'];?></td>
@@ -143,8 +142,8 @@
               </div><!--End accion-->
 
               <div class="accion">
-              	<a class="tooltip import" href="javascript:void(0);" onClick="open_win('modulo/produccion/importar.php', '', '490', '500', '<?=$row['id_produccion']?>');" title="Importar al Inventario">
-                    <img src="images/icono/import32.png" width="32" alt="Importar" />
+              	<a class="tooltip import" href="javascript:void(0);" onClick="open_win('modulo/produccion/importar.php', '', '490', '500', '<?=$row['id_produccion']?>');" title="Asignar Producci&oacute;n">
+                    <img src="images/icono/import.png" width="32" alt="Asignar Produccion" />
                 </a>
               </div><!--End accion-->
 
@@ -175,7 +174,6 @@
       <th>N° de Orden</th>
       <th>Codigo Producto</th>
       <th>Detalle</th>
-      <th>Vol</th>
       <th>Cant</th>
       <th>Fecha Inicio Producci&oacute;n</th>
       <th>Fecha Fin Producci&oacute;n</th>
@@ -217,7 +215,7 @@ $(document).ready(function() {
 	  "bFilter": true,
 	  "bJQueryUI": true,
 	  "sPaginationType": "full_numbers",
-	  "aaSorting": [[ 1, "desc" ] , [ 0, "desc" ]],
+	  "aaSorting": [[ 5, "desc" ] , [ 0, "desc" ]],
 	  "sDom": 'C<"clear">lfrtip',
 	  "oLanguage": {
 		  "sLengthMenu": 'Mostrar <select>'+

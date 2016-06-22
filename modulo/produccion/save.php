@@ -19,8 +19,8 @@
 	
 	//$cargo = $op->toCargo($data->cargo);
 		
-	$strQuery = "INSERT INTO produccion (id_inventario, detalle, volumen, cantidad, dateInc, status ) ";
-	$strQuery.= "VALUES ('".$data->idInv."', '".$data->detalle."', '".$data->vol."', '".$data->cant."', ";
+	$strQuery = "INSERT INTO produccion (id_inventario, detalle, cantidad, dateInc, status ) ";
+	$strQuery.= "VALUES ('".$data->idInv."', '".$data->detalle."', '".$data->cant."', ";
 	$strQuery.= "'".$data->date."', 'Activo' )";
 	
 	$sql = $db->Execute($strQuery);

@@ -8,7 +8,7 @@
     </div><!--End subMenu-->
     
     <div class="subMenu der">    	
-        <a onClick="open_win('modulo/produccion/newProduccion.php', '', '710', '310');">
+        <a onClick="open_win('modulo/produccion/newProduccion.php', '', '600', '310');">
         	<img src="images/menu1.jpg" width="50">
             <p class="tMenu">Nueva Orden de Producci&oacute;n</p>
             <p>Mas informaci&oacute;n</p>

@@ -57,6 +57,10 @@ form div.WrapCOD {
 form div.WrapDET {
     width: 460px;
 }
+input#cant[type="text"] {
+	margin: 0px;
+	width: 6em;
+}
 </style>
 
   <form id="form" class="ideal-form" action="javascript:saveOrdenP('form','save.php')" >
@@ -84,7 +88,7 @@ form div.WrapDET {
         <input id="cant" name="cant" type="text" placeholder="Cantidad" value="" class="validate[required, custom[number]] text-input" />
         </div><!--End idealWrap-->
 
-        <div class="idealWrap WrapCOD">
+        <!--<div class="idealWrap WrapCOD">
         <input id="vol" name="vol" type="text" placeholder="Volumen" value="" class="validate[required, custom[number]] text-input" />
         </div><!--End idealWrap-->
 
