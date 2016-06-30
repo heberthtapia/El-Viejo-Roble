@@ -24,6 +24,12 @@
 	$strQuery.= "'".$data->date."', 'Activo' )";
 	
 	$sql = $db->Execute($strQuery);
+
+	$strQuery = "SELECT max(id_produccion) FROM produccion";
+	$query = $db->Execute($strQuery);
+	$idProduccion = $query->FetchRow();
+
+	$data->id_produccion = $idProduccion[0];
 	
 	if($sql)	
 		echo json_encode($data);

@@ -55,11 +55,14 @@ form div.WrapCOD {
 }
 
 form div.WrapDET {
-    width: 460px;
+    width: 360px;
 }
 input#cant[type="text"] {
 	margin: 0px;
 	width: 6em;
+}
+input#detalle[type="text"] {
+	width: 29.5em;
 }
 </style>
 
@@ -82,7 +85,6 @@ input#cant[type="text"] {
         <div class="idealWrap WrapDET">
         <input id="detalle" name="detalle" type="text" placeholder="Nombre producto" value="" class="validate[required] text-input" autocomplete="off"  />
         </div><!--End idealWrap-->
-        <div class="clearfix"></div>
 
         <div class="idealWrap WrapCOD">
         <input id="cant" name="cant" type="text" placeholder="Cantidad" value="" class="validate[required, custom[number]] text-input" />

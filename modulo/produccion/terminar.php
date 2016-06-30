@@ -21,7 +21,7 @@
 
 	if($status[0] == "En Produccion"){
 
-		$strQuery = "UPDATE produccion SET statusProd = 3 ";
+		$strQuery = "UPDATE produccion SET statusProd = 3, dateFin = '".$fecha." ".$hora."' ";
 		$strQuery.= "WHERE id_produccion = '".$data."' ";
 
 		$sql = $db->Execute($strQuery);
