@@ -57,7 +57,7 @@
 <div class="titulo">
   <div class="subTit"><p class="text_titulo">Ordenes de Producci&oacute;n</p></div>
   <div class="new">
-  	<a onClick="open_win('modulo/produccion/newProduccion.php', '', '600', '250');"><img src="images/add.png" width="24" height="24"><span>NUEVO...</span></a>
+  	<a onClick="open_win('modulo/produccion/newProduccion.php', '', '600', '310');"><img src="images/add.png" width="24" height="24"><span>NUEVO...</span></a>
   </div>
   <div class="clearfix"></div>
 </div><!--End titulo-->
@@ -99,7 +99,7 @@
 
           <td class="last center"><?=$row['cantidad'];?></td>
           <td class="last center"><?=$row['dateInc'];?></td>
-          <td class="last center fin"><?=$row['dateFin'];?></td>
+          <td class="last center"><?=$row['dateFin'];?></td>
           <?PHP
 		  if(strcmp($row['statusProd'], 'Nueva Orden') == 0){
 			  $st="status1";
@@ -148,13 +148,13 @@
               </div><!--End accion-->
 
               <div class="accion">
-                <a class="tooltip edit" href="javascript:void(0);" onClick="open_win('modulo/produccion/editProduccion.php', '', '600', '270', '<?=$row['id_produccion']?>');" title="Editar Orden">
+                <a class="tooltip edit" href="javascript:void(0);" onClick="open_win('modulo/produccion/aprobar.php', '', '710', '310', '<?=$row['id_produccion']?>');" title="Editar Orden">
                     <img src="images/icono/edit1.png" width="32" alt="Editar"/>
                 </a>
               </div><!--End accion-->
 
               <div class="accion">
-                <a class="tooltip del" href="javascript:void(0);" onclick="deleteRow('delProduccion.php', '<?=$row['id_produccion']?>', 'produccion','produccion');" title="Eliminar Orden" >
+                <a class="tooltip del" href="javascript:void(0);" onclick="deleteRow('delProducto.php', '<?=$row['id_produccion']?>', 'producto','inventario');" title="Eliminar Orden" >
                     <img src="images/icono/recycle.png" width="32" height="32" alt="Eliminar"/>
                 </a>
               </div><!--End accion-->
@@ -297,16 +297,11 @@ $(document).ready(function() {
 		cache: false,
 		data:{res:id},
 		success: function(data){
-			var f = new Date();
-			var m = f.getMonth()+1;
-			if(m<10){
-				mm = '0'+m;
-			}
-			$('tr#tb'+id).find('td.status2').addClass('status3');
-			$('tr#tb'+id).find('td.status2').text('Terminado');
-			$('tr#tb'+id).find('td.status2').removeClass('status2');
-			$('tr#tb'+id).find('td.fin').text(f.getFullYear()+'-'+mm+'-'+f.getDate()+' '+f.getHours()+':'+f.getMinutes()+':'+f.getSeconds());
-			window.open('modulo/produccion/pdfOrdenPT.php?res='+id, '_blank');
+
+				$('tr#tb'+id).find('td.status2').addClass('status3');
+				$('tr#tb'+id).find('td.status2').text('Terminado');
+				$('tr#tb'+id).find('td.status2').removeClass('status2');
+
 		}
 	});
   }

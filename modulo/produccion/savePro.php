@@ -34,7 +34,7 @@
 
 	$srtQ = $db->Execute($srtQuery);
 
-	$strQuery = "UPDATE produccion SET statusProd = 4, cantidad = $data->cantP ";
+	$strQuery = "UPDATE produccion SET statusProd = 4, cantidad = $data->cant ";
 	$strQuery.= "WHERE id_produccion = '".$data->idP."' ";
 
 	$sql = $db->Execute($strQuery);
