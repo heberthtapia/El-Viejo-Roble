@@ -522,7 +522,7 @@ function saveOrdenP(idForm, p){
 		success: function(data){
 			parent.$.colorbox.close();
 			despliega('modulo/produccion/listProduccion.php','contenido');
-			window.open('modulo/produccion/pdfOrdenP.php?res='+data.id_produccion, '_blank');
+			//window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
 		},
 		error: function(data){
 			alert('Error al guardar el formulario');
@@ -553,7 +553,7 @@ function saveInvPro(idForm, p, id){
 			$('tr#tb'+id).find('td.status3').removeClass('status3');
 			//alert(data);
 			//despliega('modulo/produccion/listProduccion.php','contenido');
-			window.open('modulo/produccion/pdfOrdenPAsig.php?res='+id, '_blank');
+			//window.open('modulo/produccion/pdfOrdenP.php?res='+dato, '_blank');
 		},
 		error: function(data){
 			alert('Error al guardar el formulario');
